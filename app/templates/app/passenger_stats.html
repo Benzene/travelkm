@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Passenger</th>
+                <th>Vehicle</th>
+                <th>Distance travelled</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pv in passenger_vehicles %}
+            <tr>
+                <td>{{ pv.user__username }}</td>
+                <td>{{ pv.journey__vehicle__registration_number }}</td>
+                <td>{{ pv.total_km|floatformat:1 }} km</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

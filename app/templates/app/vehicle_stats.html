@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Vehicle</th>
+                <th>Distance travelled</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.registration_number }}</td>
+                <td>{{ vehicle.total_km|floatformat:1 }} km</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
